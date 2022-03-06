@@ -1,0 +1,16 @@
+<h1>Entries</h1>
+<% content_for :title do %>
+    Foodlog &ndash; <%= DateTime.now.to_formatted_s(:nice_date) %>
+<% end %>
+
+<div id="entries" class="columns mt-6 is-centered">
+  <% @entries.each do |entry| %>
+    <%= render entry %>
+  <% end %>
+</div>
+
+<%= link_to "New entry", new_entry_path %>
+
+<div class="column is-centered mt-6">
+  <%= link_to "View all entries", archives_index_path, class: "button is-link is-outlined is-centered"%>
+</div>
